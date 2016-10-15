@@ -85,8 +85,6 @@
 	__webpack_require__(264);
 
 
-	var tab = function tab(url) {};
-
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: _store.store },
@@ -97,9 +95,9 @@
 	            _reactRouter.Route,
 	            { path: '/', component: _nav2.default },
 	            _react2.default.createElement(_reactRouter.IndexRedirect, { to: '/list' }),
-	            _react2.default.createElement(_reactRouter.Route, { onEnter: tab, path: 'list', component: _list2.default }),
-	            _react2.default.createElement(_reactRouter.Route, { onEnter: tab, path: 'check', component: _check2.default }),
-	            _react2.default.createElement(_reactRouter.Route, { onEnter: tab, path: 'add', component: _add2.default })
+	            _react2.default.createElement(_reactRouter.Route, { path: 'list', component: _list2.default }),
+	            _react2.default.createElement(_reactRouter.Route, { path: 'check', component: _check2.default }),
+	            _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _add2.default })
 	        )
 	    )
 	), document.getElementById('app'));
@@ -29177,6 +29175,37 @@
 	                    '\u5FC3\u613F\u5217\u8868'
 	                ),
 	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel info' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-header' },
+	                        '\u603B\u8BA1'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-body' },
+	                        '\u603B\u5171',
+	                        _react2.default.createElement(
+	                            'strong',
+	                            null,
+	                            this.props.list.length
+	                        ),
+	                        '\u4E2A\u5FC3\u613F'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-footer' },
+	                        '\u5B8C\u6210\u5FC3\u613F\u5171\u9700\u8981',
+	                        _react2.default.createElement(
+	                            'strong',
+	                            null,
+	                            total
+	                        ),
+	                        '\u5143'
+	                    )
+	                ),
+	                _react2.default.createElement(
 	                    'ul',
 	                    null,
 	                    this.props.list.map(function (item, index) {
@@ -29227,26 +29256,6 @@
 	                            )
 	                        );
 	                    })
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'panel info' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'panel-header' },
-	                        '\u603B\u8BA1'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'panel-body' },
-	                        '\u5B8C\u6210\u5FC3\u613F\u5171\u9700\u8981',
-	                        _react2.default.createElement(
-	                            'strong',
-	                            null,
-	                            total
-	                        ),
-	                        '\u5143'
-	                    )
 	                )
 	            );
 	        }
@@ -29354,6 +29363,37 @@
 	                    '\u5DF2\u5B8C\u6210\u7684\u5FC3\u613F'
 	                ),
 	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel info' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-header' },
+	                        '\u603B\u8BA1'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-body' },
+	                        '\u5B8C\u6210\u4E86',
+	                        _react2.default.createElement(
+	                            'strong',
+	                            null,
+	                            this.props.finished.length
+	                        ),
+	                        '\u4E2A\u5FC3\u613F'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-footer' },
+	                        '\u5B8C\u6210\u5FC3\u613F\u5171\u82B1\u8D39\u4E86',
+	                        _react2.default.createElement(
+	                            'strong',
+	                            null,
+	                            total
+	                        ),
+	                        '\u5143'
+	                    )
+	                ),
+	                _react2.default.createElement(
 	                    'ul',
 	                    null,
 	                    this.props.finished.map(function (item, index) {
@@ -29393,7 +29433,7 @@
 	                                    'button',
 	                                    { className: 'btn btn-warning',
 	                                        onClick: _this2.handleCancel.bind(_this2, item) },
-	                                    '\u53D6\u6D88\u5DF2\u5B8C\u6210'
+	                                    '\u53D6\u6D88\u5B8C\u6210'
 	                                ),
 	                                _react2.default.createElement(
 	                                    'button',
@@ -29403,26 +29443,6 @@
 	                            )
 	                        );
 	                    })
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'panel info' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'panel-header' },
-	                        '\u603B\u8BA1'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'panel-body' },
-	                        '\u5B8C\u6210\u5FC3\u613F\u5171\u82B1\u8D39\u4E86',
-	                        _react2.default.createElement(
-	                            'strong',
-	                            null,
-	                            total
-	                        ),
-	                        '\u5143'
-	                    )
 	                )
 	            );
 	        }
@@ -29714,7 +29734,7 @@
 
 
 	// module
-	exports.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n}\nul li {\n  list-style: none;\n}\nhtml {\n  font-size: 100px;\n}\nhtml,\nbody {\n  max-width: 640px;\n  width: 100%;\n  height: 100%;\n  background: #eee;\n  font-family: \"Microsoft YaHei\";\n}\na {\n  display: block;\n}\n#app {\n  padding: .2rem 0 .5rem;\n}\n/*公共方法*/\n/*顶部标题*/\n.title {\n  width: 3.2rem;\n  text-align: center;\n  position: fixed;\n  z-index: 999;\n  top: 0;\n  background-color: #177664;\n  color: #eee;\n  height: .3rem;\n  line-height: .3rem;\n  font-size: .2rem;\n}\n/*底部导航条*/\n.nav {\n  width: 3rem;\n  padding: 0 .1rem;\n  background-color: white;\n  height: 0.5rem;\n}\n.nav .nav-item {\n  vertical-align: top;\n  display: inline-block;\n  width: 1rem;\n  height: 0.5rem;\n}\n.nav .nav-item a {\n  height: 0.5rem;\n  line-height: 0.5rem;\n  width: 100%;\n  overflow: hidden;\n  transition: all 0.2s 0s linear;\n  -webkit-transition: all 0.2s 0s linear;\n}\n.nav .nav-item a.active {\n  display: block;\n  box-shadow: 0 .03rem 0 #177664 inset;\n}\n.nav.nav-bottom {\n  position: fixed;\n  bottom: 0;\n}\n.icon {\n  display: block;\n  width: 0.3rem;\n  height: 0.3rem;\n  margin: 0.1rem 0.35rem;\n}\n.icon.icon-add {\n  background: url(" + __webpack_require__(267) + ");\n  background-size: cover;\n}\n.icon.icon-check {\n  background: url(" + __webpack_require__(268) + ");\n  background-size: cover;\n}\n.icon.icon-list {\n  background: url(" + __webpack_require__(269) + ");\n  background-size: cover;\n}\n/*面板*/\n.panel {\n  display: block;\n  width: 2.8rem;\n  margin: .2rem auto;\n  border: 2px solid;\n  border-radius: .15rem;\n  font-size: .18rem;\n  overflow: hidden;\n}\n.panel.emerge {\n  border-color: #ebccd1;\n}\n.panel.emerge .panel-header {\n  color: #a94442;\n  background-color: #f2dede;\n}\n.panel.normal {\n  border-color: #faebcc;\n}\n.panel.normal .panel-header {\n  color: #8a6d3b;\n  background-color: #fcf8e3;\n}\n.panel.finished {\n  border-color: #d6e9c6;\n}\n.panel.finished .panel-header {\n  color: #3c763d;\n  background: #dff0d8;\n}\n.panel.info {\n  border-color: #bce8f1;\n}\n.panel.info .panel-header {\n  color: #31708f;\n  background-color: #d9edf7;\n}\n.panel .panel-header {\n  font-size: .22rem;\n  text-align: center;\n  padding: .1rem;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  border-bottom: 1px solid;\n}\n.panel .panel-body {\n  text-align: left;\n  padding: .1rem .1rem;\n  background: white;\n}\n.panel .panel-footer {\n  text-align: right;\n  background-color: #f5f5f5;\n  padding: .05rem;\n  border-top: 1px solid #ddd;\n}\n/*按钮*/\n.btn {\n  display: inline-block;\n  margin: 0 0.1rem;\n  padding: .1rem .1rem;\n  border: 1px solid;\n  border-radius: 5px;\n  font-size: .2rem;\n}\n.btn.btn-danger {\n  color: #fff;\n  background-color: #d9534f;\n  border-color: #d43f3a;\n}\n.btn.btn-success {\n  color: #fff;\n  background-color: #5cb85c;\n  border-color: #4cae4c;\n}\n.btn.btn-warning {\n  color: #fff;\n  background-color: #f0ad4e;\n  border-color: #eea236;\n}\n.btn.btn-center {\n  margin-left: 50%;\n  transform: translate(-50%, 0);\n  -webkit-transform: translate(-50%, 0);\n}\n/*列表*/\n.list-group {\n  margin-bottom: 20px;\n}\n.list-group .list-group-item {\n  position: relative;\n  display: block;\n  padding: .1rem;\n  background-color: white;\n  border: 1px solid #ddd;\n}\n/*表单*/\n.form {\n  font-size: .18rem;\n  padding: .2rem;\n  margin-top: .5rem;\n}\n.form .input-group {\n  line-height: 0.25rem;\n  margin: .2rem auto;\n}\n.form .input-group .input {\n  padding-left: .1rem;\n  margin: 0 auto;\n  width: 1.5rem;\n  height: 0.25rem;\n  display: inline-block;\n  border: 1px solid #177664;\n  border-radius: 5px;\n}\n.form .input-group .select {\n  width: 1rem;\n  height: .25rem;\n  text-align: center;\n}\n/*切换动画*/\n#add {\n  -webkit-animation: fadeIn 0.2s 0s;\n  animation: fadeIn 0.2s 0s;\n}\n#check {\n  -webkit-animation: fadeIn 0.2s 0s;\n  animation: fadeIn 0.2s 0s;\n}\n#list {\n  -webkit-animation: fadeIn 0.2s 0s;\n  animation: fadeIn 0.2s 0s;\n}\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n", ""]);
+	exports.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n}\nul li {\n  list-style: none;\n}\nhtml {\n  font-size: 100px;\n}\nhtml,\nbody {\n  max-width: 640px;\n  width: 100%;\n  height: 100%;\n  background: #eee;\n  font-family: \"Microsoft YaHei\";\n}\na {\n  display: block;\n}\n#app {\n  padding: .2rem 0 .5rem;\n}\n/*公共方法*/\n/*顶部标题*/\n.title {\n  width: 3.2rem;\n  text-align: center;\n  position: fixed;\n  z-index: 999;\n  top: 0;\n  background-color: #177664;\n  color: #eee;\n  height: .3rem;\n  line-height: .3rem;\n  font-size: .2rem;\n}\n/*底部导航条*/\n.nav {\n  width: 3rem;\n  padding: 0 .1rem;\n  background-color: white;\n  height: 0.5rem;\n}\n.nav .nav-item {\n  vertical-align: top;\n  display: inline-block;\n  width: 1rem;\n  height: 0.5rem;\n}\n.nav .nav-item a {\n  height: 0.5rem;\n  line-height: 0.5rem;\n  width: 100%;\n  overflow: hidden;\n  transition: all 0.2s 0s linear;\n  -webkit-transition: all 0.2s 0s linear;\n}\n.nav .nav-item a.active {\n  display: block;\n  box-shadow: 0 .03rem 0 #177664 inset;\n}\n.nav.nav-bottom {\n  position: fixed;\n  bottom: 0;\n}\n.icon {\n  display: block;\n  width: 0.3rem;\n  height: 0.3rem;\n  margin: 0.1rem 0.35rem;\n}\n.icon.icon-add {\n  background: url(" + __webpack_require__(267) + ");\n  background-size: cover;\n}\n.icon.icon-check {\n  background: url(" + __webpack_require__(268) + ");\n  background-size: cover;\n}\n.icon.icon-list {\n  background: url(" + __webpack_require__(269) + ");\n  background-size: cover;\n}\n/*面板*/\n.panel {\n  display: block;\n  width: 2.8rem;\n  margin: .2rem auto;\n  border: 2px solid;\n  border-radius: .15rem;\n  font-size: .18rem;\n  overflow: hidden;\n  text-align: center;\n}\n.panel.emerge {\n  border-color: #ebccd1;\n}\n.panel.emerge .panel-header {\n  color: #a94442;\n  background-color: #f2dede;\n}\n.panel.normal {\n  border-color: #faebcc;\n}\n.panel.normal .panel-header {\n  color: #8a6d3b;\n  background-color: #fcf8e3;\n}\n.panel.finished {\n  border-color: #d6e9c6;\n}\n.panel.finished .panel-header {\n  color: #3c763d;\n  background: #dff0d8;\n}\n.panel.info {\n  border-color: #bce8f1;\n}\n.panel.info .panel-header {\n  color: #31708f;\n  background-color: #d9edf7;\n}\n.panel .panel-header {\n  font-size: .22rem;\n  padding: .1rem;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  border-bottom: 1px solid;\n}\n.panel .panel-body {\n  padding: .1rem .1rem;\n  background: white;\n}\n.panel .panel-footer {\n  background-color: #f5f5f5;\n  padding: .05rem;\n  border-top: 1px solid #ddd;\n}\n/*按钮*/\n.btn {\n  display: inline-block;\n  margin: 0 0.1rem;\n  padding: .1rem .1rem;\n  border: 1px solid;\n  border-radius: 5px;\n  font-size: .2rem;\n}\n.btn.btn-danger {\n  color: #fff;\n  background-color: #d9534f;\n  border-color: #d43f3a;\n}\n.btn.btn-success {\n  color: #fff;\n  background-color: #5cb85c;\n  border-color: #4cae4c;\n}\n.btn.btn-warning {\n  color: #fff;\n  background-color: #f0ad4e;\n  border-color: #eea236;\n}\n.btn.btn-center {\n  margin-left: 50%;\n  transform: translate(-50%, 0);\n  -webkit-transform: translate(-50%, 0);\n}\n/*列表*/\n.list-group {\n  margin-bottom: 20px;\n}\n.list-group .list-group-item {\n  position: relative;\n  display: block;\n  padding: .1rem;\n  background-color: white;\n  border: 1px solid #ddd;\n}\n/*表单*/\n.form {\n  font-size: .18rem;\n  padding: .2rem;\n  margin-top: .5rem;\n}\n.form .input-group {\n  line-height: 0.25rem;\n  margin: .2rem auto;\n}\n.form .input-group .input {\n  padding-left: .1rem;\n  margin: 0 auto;\n  width: 1.5rem;\n  height: 0.25rem;\n  display: inline-block;\n  border: 1px solid #177664;\n  border-radius: 5px;\n}\n.form .input-group .select {\n  width: 1rem;\n  height: .25rem;\n  text-align: center;\n}\n/*切换动画*/\n#add {\n  -webkit-animation: fadeIn 0.2s 0s;\n  animation: fadeIn 0.2s 0s;\n}\n#check {\n  -webkit-animation: fadeIn 0.2s 0s;\n  animation: fadeIn 0.2s 0s;\n}\n#check .panel {\n  opacity: 0;\n  -webkit-animation: fadeInUp 0.2s 0.1s both;\n  animation: fadeInUp 0.2s 0.1s both;\n}\n#list {\n  -webkit-animation: fadeIn 0.2s 0s;\n  animation: fadeIn 0.2s 0s;\n}\n#list .panel {\n  opacity: 0;\n  -webkit-animation: fadeInUp 0.2s 0.1s both;\n  animation: fadeInUp 0.2s 0.1s both;\n}\n/*动画效果*/\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes fadeInUp {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 10%, 0);\n    transform: translate3d(0, 10%, 0);\n  }\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n@keyframes fadeInUp {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 10%, 0);\n    transform: translate3d(0, 10%, 0);\n  }\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n", ""]);
 
 	// exports
 
