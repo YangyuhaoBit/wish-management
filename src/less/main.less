@@ -1,0 +1,318 @@
+@imgUrl: '../img/';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+html {
+  font-size: 100px;
+}
+
+html, body {
+  max-width: 640px;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  font-family: "Microsoft YaHei";
+}
+
+a {
+  display: block;
+}
+
+#app {
+  padding: .2rem 0 .5rem;
+}
+
+/*公共方法*/
+.translate(@x:0,@y:0) {
+  transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+}
+
+.middle() {
+  display: block;
+  margin: 50% 50%;
+  .translate(-50%, -50%);
+}
+
+.transition(@property:all,@duration:1s,@delay:0s,@timingFunction:linear) {
+  transition: @arguments;
+  -webkit-transition: @arguments;
+}
+
+/*顶部标题*/
+.title {
+  width: 3.2rem;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  background-color: #177664;
+  color: #eee;
+  height: .3rem;
+  line-height: .3rem;
+  font-size: .2rem;
+}
+
+/*底部导航条*/
+@navHeight: 0.5;
+@navWidth: 1;
+.nav {
+  width: 3rem;
+  padding: 0 .1rem;
+  background-color: white;
+  height: unit(@navHeight, rem);
+  .nav-item {
+    vertical-align: top;
+    display: inline-block;
+    width: unit(@navWidth, rem);
+    height: unit(@navHeight, rem);
+    a {
+      height: unit(@navHeight, rem);
+      line-height: unit(@navHeight, rem);
+      width: 100%;
+      overflow: hidden;
+      .transition(@duration: 0.2s);
+      &.active {
+        display: block;
+        box-shadow: 0 .03rem 0 #177664 inset;
+      }
+    }
+  }
+  &.nav-bottom {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+@iconSize: 0.3;
+.icon {
+  display: block;
+  width: unit(@iconSize, rem);
+  height: unit(@iconSize, rem);
+  margin: unit((@navHeight - @iconSize)/2, rem) unit((@navWidth - @iconSize)/2, rem);
+  &.icon-add {
+    background: url("@{imgUrl}add.png");
+    background-size: cover;
+  }
+
+  &.icon-check {
+    background: url("@{imgUrl}check.png");
+    background-size: cover;
+  }
+
+  &.icon-list {
+    background: url("@{imgUrl}list.png");
+    background-size: cover;
+  }
+}
+
+/*面板*/
+.panel {
+  display: block;
+  width: 2.8rem;
+  margin: .2rem auto;
+  border: 2px solid;
+  border-radius: .15rem;
+  font-size: .18rem;
+  overflow: hidden;
+  text-align: center;
+  &.emerge {
+    border-color: #ebccd1;
+    .panel-header {
+      color: #a94442;
+      background-color: #f2dede;
+    }
+  }
+  &.normal {
+    border-color: #faebcc;
+    .panel-header {
+      color: #8a6d3b;
+      background-color: #fcf8e3;
+    }
+  }
+  &.finished {
+    border-color: #d6e9c6;
+    .panel-header {
+      color: #3c763d;
+      background: #dff0d8;
+    }
+  }
+  &.info{
+    border-color: #bce8f1;
+    .panel-header{
+      color: #31708f;
+      background-color: #d9edf7;
+    }
+  }
+  .panel-header {
+    font-size: .22rem;
+    padding: .1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid;
+  }
+  .panel-body {
+    padding: .1rem .1rem;
+    background: white;
+  }
+  .panel-footer {
+    background-color: #f5f5f5;
+    padding: .05rem;
+    border-top: 1px solid #ddd;
+  }
+}
+
+/*按钮*/
+.btn {
+  display: inline-block;
+  margin: 0 0.1rem;
+  padding: .1rem .1rem;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: .2rem;
+  &.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+  }
+  &.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+  }
+  &.btn-warning{
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+  }
+  &.btn-center {
+    margin-left: 50%;
+    .translate(-50%, 0)
+  }
+}
+
+/*列表*/
+.list-group {
+  margin-bottom: 20px;
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: .1rem;
+    background-color: white;
+    border: 1px solid #ddd;
+  }
+}
+
+/*表单*/
+.form {
+  font-size: .18rem;
+  padding: .2rem;
+  margin-top: .5rem;
+  .input-group {
+    line-height: 0.25rem;
+    margin: .2rem auto;
+    .input {
+      padding-left: .1rem;
+      margin: 0 auto;
+      width: 1.5rem;
+      height: 0.25rem;
+      display: inline-block;
+      border: 1px solid #177664;
+      border-radius: 5px;
+    }
+    .select {
+      width: 1rem;
+      height: .25rem;
+      text-align: center;
+    }
+  }
+}
+
+/*切换动画*/
+#add {
+  .fadeIn();
+}
+
+#check {
+  .fadeIn();
+  .panel{
+    opacity: 0;
+    .fadeInUp(@duration: .2s,@delay:.1s)
+  }
+}
+
+#list {
+ .fadeIn();
+  .panel{
+    opacity: 0;
+    .fadeInUp(@duration: .2s,@delay:.1s)
+  }
+}
+
+
+/*动画效果*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn(@duration:0.2s,@delay:0s) {
+  -webkit-animation: fadeIn @arguments;
+  animation: fadeIn @arguments;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10%, 0);
+    transform: translate3d(0, 10%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10%, 0);
+    transform: translate3d(0, 10%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp(@duration:0.2s,@delay:0s,@animation-fill-mode:both) {
+  -webkit-animation: fadeInUp @arguments;
+  animation: fadeInUp @arguments;
+}

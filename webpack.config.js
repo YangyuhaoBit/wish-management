@@ -27,7 +27,7 @@ let config = {
             },
             {
                 test: /\.(eot|woff|woff2|svg|ttf|png)$/,
-                loader: 'url'
+                loader: 'url?limit=5000'
             }
         ]
     }
