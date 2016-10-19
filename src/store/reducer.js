@@ -5,17 +5,14 @@ export const reducer = (state, action)=> {
                 return;
             }
             state.list.push(action.newItem);
-            localStorage.setItem('data', JSON.stringify(state));
             return state;
         case 'remove':
             state.list = state.list.filter(item=>item.name != action.removeItem.name);
             state.finished = state.finished.filter(item=>item.name != action.removeItem.name);
-            localStorage.setItem('data', JSON.stringify(state));
             return Object.assign({}, state);
         case 'finish':
             state.list = state.list.filter(item=>item.name != action.finishItem.name);
             state.finished.push(action.finishItem);
-            localStorage.setItem('data', JSON.stringify(state));
             return Object.assign({}, state);
         case 'get':
             state.list = action.list || [];
@@ -24,7 +21,6 @@ export const reducer = (state, action)=> {
         case 'cancel':
             state.finished = state.finished.filter(item=>item.name != action.cancelItem.name);
             state.list.push(action.cancelItem);
-            localStorage.setItem('data', JSON.stringify(state));
             return Object.assign({}, state);
         default:
             return {list: [], finished: []};

@@ -1,9 +1,12 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {reducer} from './reducer';
+import {storageMiddleware} from './middleware';
 
-let store = createStore(reducer);
+const createStoreWithMiddleware = applyMiddleware(storageMiddleware)(createStore);
 
-let {list, finished} = JSON.parse(localStorage.getItem('data')) || [];
+let store = createStoreWithMiddleware(reducer);
+
+let {list = [], finished = []} = JSON.parse(localStorage.getItem('data'));
 
 store.dispatch({
     type: 'get',
